@@ -1,0 +1,44 @@
+﻿
+@using System.ComponentModel
+@using Vidly_1._0.Models
+@model Vidly_1._0.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Movie"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m=> m.Name)
+        @Html.TextBoxFor(m=> m.Name, new{@class="form-control"})
+        @Html.ValidationMessageFor(m=> m.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReleasedDate)
+        @Html.TextBoxFor(m => m.ReleasedDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReleasedDate)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.GenresId)
+        @Html.DropDownListFor(m => m.GenresId, new SelectList(Model.Genre, "Id", "Name"), "Select Genre Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GenresId)
+
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.NumberInStocks)
+        @Html.TextBoxFor(m => m.NumberInStocks, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NumberInStocks)
+        
+    </div>
+
+    @Html.HiddenFor(m=> m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

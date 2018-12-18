@@ -49,12 +49,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -194,7 +203,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -254,15 +265,79 @@
     <Compile Include="Migrations\201811161251168_ApplyAnnotationToCustomerName.Designer.cs">
       <DependentUpon>201811161251168_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811170645255_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201811170645255_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201811170645255_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811170655199_AddNameToMembershipType1.cs" />
+    <Compile Include="Migrations\201811170655199_AddNameToMembershipType1.Designer.cs">
+      <DependentUpon>201811170655199_AddNameToMembershipType1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811170658056_AddNameToMembershipType2.cs" />
+    <Compile Include="Migrations\201811170658056_AddNameToMembershipType2.Designer.cs">
+      <DependentUpon>201811170658056_AddNameToMembershipType2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811180627334_AddBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201811180627334_AddBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201811180627334_AddBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811271324023_AddMoviesDB.cs" />
+    <Compile Include="Migrations\201811271324023_AddMoviesDB.Designer.cs">
+      <DependentUpon>201811271324023_AddMoviesDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811271333310_AddMoviesDB1.cs" />
+    <Compile Include="Migrations\201811271333310_AddMoviesDB1.Designer.cs">
+      <DependentUpon>201811271333310_AddMoviesDB1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811271339396_AddMoviesDataIntoDb.cs" />
+    <Compile Include="Migrations\201811271339396_AddMoviesDataIntoDb.Designer.cs">
+      <DependentUpon>201811271339396_AddMoviesDataIntoDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811272201569_test.cs" />
+    <Compile Include="Migrations\201811272201569_test.Designer.cs">
+      <DependentUpon>201811272201569_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281245154_AddGenreID.cs" />
+    <Compile Include="Migrations\201811281245154_AddGenreID.Designer.cs">
+      <DependentUpon>201811281245154_AddGenreID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281249285_RemoveGenresIdColumn.cs" />
+    <Compile Include="Migrations\201811281249285_RemoveGenresIdColumn.Designer.cs">
+      <DependentUpon>201811281249285_RemoveGenresIdColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811281317061_RemoveGenresIdColumn1.cs" />
+    <Compile Include="Migrations\201811281317061_RemoveGenresIdColumn1.Designer.cs">
+      <DependentUpon>201811281317061_RemoveGenresIdColumn1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811291458037_CustomerFormFinal.cs" />
+    <Compile Include="Migrations\201811291458037_CustomerFormFinal.Designer.cs">
+      <DependentUpon>201811291458037_CustomerFormFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811300908445_DropGenreTable.cs" />
+    <Compile Include="Migrations\201811300908445_DropGenreTable.Designer.cs">
+      <DependentUpon>201811300908445_DropGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811300931290_ResolvedbGenres.cs" />
+    <Compile Include="Migrations\201811300931290_ResolvedbGenres.Designer.cs">
+      <DependentUpon>201811300931290_ResolvedbGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812130511217_FixedFinalExcer4.cs" />
+    <Compile Include="Migrations\201812130511217_FixedFinalExcer4.Designer.cs">
+      <DependentUpon>201812130511217_FixedFinalExcer4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genres.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-luman.css" />
@@ -328,6 +403,8 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -384,6 +461,51 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811161251168_ApplyAnnotationToCustomerName.resx">
       <DependentUpon>201811161251168_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811170645255_AddNameToMembershipType.resx">
+      <DependentUpon>201811170645255_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811170655199_AddNameToMembershipType1.resx">
+      <DependentUpon>201811170655199_AddNameToMembershipType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811170658056_AddNameToMembershipType2.resx">
+      <DependentUpon>201811170658056_AddNameToMembershipType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811180627334_AddBirthdateToCustomer.resx">
+      <DependentUpon>201811180627334_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811271324023_AddMoviesDB.resx">
+      <DependentUpon>201811271324023_AddMoviesDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811271333310_AddMoviesDB1.resx">
+      <DependentUpon>201811271333310_AddMoviesDB1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811271339396_AddMoviesDataIntoDb.resx">
+      <DependentUpon>201811271339396_AddMoviesDataIntoDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811272201569_test.resx">
+      <DependentUpon>201811272201569_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281245154_AddGenreID.resx">
+      <DependentUpon>201811281245154_AddGenreID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281249285_RemoveGenresIdColumn.resx">
+      <DependentUpon>201811281249285_RemoveGenresIdColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811281317061_RemoveGenresIdColumn1.resx">
+      <DependentUpon>201811281317061_RemoveGenresIdColumn1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811291458037_CustomerFormFinal.resx">
+      <DependentUpon>201811291458037_CustomerFormFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300908445_DropGenreTable.resx">
+      <DependentUpon>201811300908445_DropGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811300931290_ResolvedbGenres.resx">
+      <DependentUpon>201811300931290_ResolvedbGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812130511217_FixedFinalExcer4.resx">
+      <DependentUpon>201812130511217_FixedFinalExcer4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

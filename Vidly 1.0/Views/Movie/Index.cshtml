@@ -6,26 +6,33 @@
 
 <h2>Movies</h2>
 
+@using (Html.BeginForm("New", "Movie"))
+{
+    <button type="submit" class="btn btn-primary" style="margin-bottom:10px">New Movie</button>
+}
+
 @if (!Model.Any())
 {
-<p>We don't have any customers yet.</p>
+    <p>We don't have any Movies yet.</p>
 }
 
 else
 {
     <table class="table table-bordered table-hover">
-    <thead>
-    <tr>
-        <th>Customer</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var movie in Model)
-    {
-        <tr>
-            <td>@Html.ActionLink(movie.Name,"Details","Movie",new {id = movie.Id},null)</td>
-        </tr>
-    }
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id }, null)</td>
+                    <td>@movie.Genres.Name</td>
+                </tr>
+            }
         </tbody>
     </table>
 }
