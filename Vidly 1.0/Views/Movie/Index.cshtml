@@ -18,11 +18,12 @@
 
 else
 {
-    <table class="table table-bordered table-hover">
+    <table id="#movies" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Movie</th>
                 <th>Genre</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@ else
                 <tr>
                     <td>@Html.ActionLink(movie.Name, "Edit", "Movie", new { id = movie.Id }, null)</td>
                     <td>@movie.Genres.Name</td>
+                    <td></td>
                 </tr>
             }
         </tbody>
